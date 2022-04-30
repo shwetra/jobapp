@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart page</title>
+</head>
+<body>
+    <div id="products"> </div>
+    
+</body>
+</html>
+<script>
+
+var  cartLSData=JSON.parse(localStorage.getItem("masai-cart")) || []
+      
+   function display(data){
+   products.innerHTML=null;
+
+            data.forEach(function(elem){
+          
+            var dabba =document.createElement("div")
+      
+            var img=document.createElement("img")
+            img.src=elem.img
+
+            var title=document.createElement("h2")
+            title.textContent=elem.brand;
+
+            var desc=document.createElement("h2")
+            desc.textContent=elem.name;
+
+            var catagory=document.createElement("h2")
+            catagory.textContent=elem.catagory;
+
+           var price =document.createElement("h2")
+           price.textContent=elem.price
+          
+           var buttton=document.createElement("buttton");
+           buttton.innerText="Delete";
+           buttton.style.backgroundColor="gray"
+           buttton.addEventListener("click",function(event){
+             Delete(elem.productID);
+              //  Delete(elem);
+           });
+
+          dabba.append(img,title,desc,catagory,price,buttton);
+             products.append(dabba);
+           })
+    }
+
+      display(cartLSData);
+      function Delete(id){
+        cartLSData =cartLSData.filter(function(elem){
+         return elem.productID!=id
+      })
+
+      display(cartLSData);
+             localStorage.setItem("masai-cart",JSON.stringify(cartLSData))
+      }
+       
+
+</script>

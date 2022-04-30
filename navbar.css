@@ -1,0 +1,31 @@
+*{
+    margin-top: 0px;
+    padding: 0px;
+    /* box-sizing: 0px; */
+}
+body{
+    background-color: gray;
+}
+.nav{
+    display: flex;
+    height: 50px;
+    width: 100%;
+    background-color: rgb(135, 212, 233);
+}
+
+.logo{
+   width: 20%;
+}
+.text{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+}
+.user{
+    width: 30%;
+    display: flex;
+}
+
+.user > h2{
+    margin-left: 20px;
+}
